@@ -1,0 +1,15 @@
+
+.launchs__container {
+    margin-top: 2rem;
+}
+
+
+.launchs__container .launchs {
+    background-color: var(--gpt-lightgray);
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.launch {
+    margin-top: 1rem;
+}

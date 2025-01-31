@@ -1,0 +1,32 @@
+.classecard__container .card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #282828;
+    border: .1rem solid var(--gpt-lightgray);
+    border-radius: 1rem;
+}
+
+.card .thumbnail_classe {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.card .infos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.card .infos h2 {
+    color: var(--gpt-text);
+}
+
+.card .infos p {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--gpt-text);
+}

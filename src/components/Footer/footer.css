@@ -1,0 +1,14 @@
+
+.footer__container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.footer__container p {
+    color: #777;
+}
+
+.footer__container p strong {
+    color: var(--color-blue);
+}

@@ -1,0 +1,21 @@
+
+.graphics__container {
+    margin-top: 2rem;
+}
+
+
+.graphics__container .graphics {
+    background-color: var(--gpt-lightgray);
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.graphic {
+    margin-top: 1rem;
+}
+
+.graphic .expense_percentage {
+    background: linear-gradient(#ff6039, #ff5039, #ff561e);
+    border-radius: .5rem;
+    padding-left: .5rem;
+}

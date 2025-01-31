@@ -1,0 +1,11 @@
+.content-layout {
+  display: flex;
+  gap: 2rem;
+}
+
+.content-layout .content {
+  flex: 1;
+  max-width: 130rem;
+  width: 100%;
+  padding: 2rem 2% 2rem 0;
+}

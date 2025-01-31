@@ -1,0 +1,125 @@
+.container__note {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.container__note .note {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.container__note .pdf {
+    width: 30rem;
+    background-color: var(--gpt-lightgray);
+}
+
+.container__note .note .box_input {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.container__note .note form .input_form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-bottom: 1rem;
+    border-bottom: .1rem solid var(--color-blue);
+}
+
+.container__note .note form .input_form input,
+.container__note .note form .input_form textarea {
+    color: var(--gpt-text);
+    padding: 1rem;
+    background-color: transparent;
+}
+
+.container__note .note form .input_form textarea {
+    resize: none;
+}
+
+.container__note .note form .btn__save {
+    background-color: var(--color-blue);
+    padding: 1rem 4rem;
+    border-radius: .5rem;
+    color: var(--gpt-text);
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+.container__note .box_part {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.container__note .box_part .btn_part {
+    background-color: var(--gpt-sidebar);
+    color: var(--gpt-text);
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.listParts .parts {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.listParts .parts .list {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--gpt-sidebar);
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.listParts .parts .list span {
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.listParts {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.listParts p {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.flex_container {
+    display: flex;
+    background-color: aqua;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.flex_container .item {
+    flex: auto;
+    background-color: azure;
+    color: #333;
+    text-align: center;
+}
+
+@media screen and (max-width: 48em) {
+    .container__note .note .box_input {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .container__note .note form .input_form {
+        width: 100%;
+    }
+    
+}

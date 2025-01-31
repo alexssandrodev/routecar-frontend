@@ -1,0 +1,57 @@
+
+.contact__container {
+    background-color: #fff;
+    margin: 8rem 0;
+}
+
+.contact__container .contact {
+    max-width: 130rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 2%;
+}
+
+.contact .box_contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contact .box_contact .left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.contact .box_contact .left span {
+    color: #777;
+    transition: all .5s ease-in-out;
+}
+
+.contact .box_contact .left span:hover {
+    color: var(--color-red);
+}
+
+.contact .box_contact .right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact .box_contact .right p {
+    color: #777;
+}
+
+.contact .box_contact .right .whatsapp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: #b1ff62;
+    color: var(--gpt-lightgray);
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}

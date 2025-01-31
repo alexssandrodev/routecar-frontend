@@ -1,0 +1,39 @@
+.gallery__container {
+    margin-top: 6rem;
+    position: relative;
+}
+
+.gallery__container .gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 2rem 2%;
+}
+
+.gallery .image {
+    width: 100%;
+    height: 30rem;
+    object-fit: cover;
+    transition: all .5s ease-in-out;
+}
+
+.open {
+    width: 40rem;
+    height: 40rem;
+    position: absolute;
+}
+
+.gallery .image:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (min-width: 48rem) {
+    .gallery__container .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 64rem) {
+    .gallery__container .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

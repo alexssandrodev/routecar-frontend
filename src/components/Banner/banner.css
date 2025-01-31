@@ -1,0 +1,56 @@
+
+.banner-container {
+    color: #333;
+    position: relative;
+}
+
+.banner-container .banner {
+    background-image: url('/banner.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 100%;
+    min-height: 20rem;
+    width: 100%;
+}
+
+.banner-container .banner {
+  width: 100%;
+  object-fit: contain;
+}
+
+.banner-container .banner .logo-orange {
+    margin-top: 2rem;
+}
+
+.banner-container .banner .logo {
+    display: flex;
+    min-height: 100%;
+}
+
+.banner-container .banner .title {
+    display: none;
+    width: 50rem;
+}
+
+.banner-container .banner .title h1 {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    color: var(--gpt-text);
+}
+
+.banner-container .banner .title p {
+    color: var(--gpt-text);
+}
+
+.banner-container .banner-jc {
+    object-fit: contain;
+    z-index: -2;
+}
+
+@media screen and (min-width: 64rem) {
+  .banner-container .banner {
+    min-height: 70rem;
+  }    
+
+}

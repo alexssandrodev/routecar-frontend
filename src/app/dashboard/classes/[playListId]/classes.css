@@ -1,0 +1,87 @@
+.classes__container .classes .box_classe {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.classes .time {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.classes .time h3 {
+    color: var(--gpt-text);
+}
+
+.classes .time span {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #777;
+    font-size: 1.2rem;
+}
+
+.box_classe .box_group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.box_classe .box_group .infos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.box_classe .box_group .infos h2 {
+    color: var(--gpt-text);
+}
+
+.box_classe .box_group .infos p {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #777;
+}
+
+.classes__container .classes iframe {
+    display: flex;
+    border-radius: 1rem;
+    height: 30rem;
+}
+
+.classes .box_classe .classes_card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.classes_card .btn_change {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 48rem) {
+    .classes .box_classe .classes_card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 64rem) {
+
+    .classes .box_classe .classes_card {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .classes__container .classes iframe {
+        height: 72rem;
+    }
+
+    .classes .time {
+        flex-direction: row;
+        margin-bottom: 2rem;
+    }
+}

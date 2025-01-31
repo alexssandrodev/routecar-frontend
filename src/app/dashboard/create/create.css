@@ -1,0 +1,48 @@
+
+.modal__container {
+    max-width: 60rem;
+    transition: all .5s ease-in-out;
+}
+
+.modal__container .modal {
+    display: flex;
+    align-items: center;
+}
+
+.modal__container .content {
+    margin-top: 2rem;
+}
+
+.modal__container .content .form_create {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.modal__container .content .form_create label {
+    margin-bottom: .5rem;
+}
+
+.modal__container .content .form_create input,
+.modal__container .content .form_create select {
+    flex: 1;
+    margin-bottom: 1rem;
+    background-color: #d9d9d9;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.form_create .btn_save {
+    background-color: var(--gpt-sidebar);
+    padding: 1rem;
+    border-radius: .5rem;
+    color: var(--gpt-text);
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 48em) {
+    .modal__container {
+        width: 100%;
+    }
+}

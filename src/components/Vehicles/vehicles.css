@@ -1,0 +1,31 @@
+.vehicles-container {
+    padding: 0 2%;
+}
+
+.vehicles-container h2 {
+    margin-bottom: 2rem;
+    color: var(--color-red);
+}
+
+.vehicles-container .vehicles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media screen and (min-width: 48rem) {
+    .vehicles-container .vehicles {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 64rem) {
+    .vehicles-container {
+        margin-top: 8rem;
+        margin-bottom: 8rem;
+    }
+
+    .vehicles-container .vehicles {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
