@@ -1,6 +1,6 @@
 type Car = {
   image: string;
-  title: string;
+  model: string;
   characteristics: string;
   price: number;
   year: string;

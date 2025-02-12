@@ -1,4 +1,70 @@
 
 .security__container {
-    background-image: linear-gradient(45deg, #f47d31, #bf4a02);
+  display: flex;
+  flex-direction: column-reverse;
+  min-height: 100vh;
+}
+
+.security__container .icon-security {
+  position: absolute;
+  top: 45%;
+  right: -2rem;
+  color: var(--color-blue);
+}
+
+.security__container .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--color-white);
+  text-align: center;
+  border-radius: 0 5rem 5rem 0;
+  box-shadow: 1px 9px 15px -3px rgba(0, 0, 0, .5);
+
+  position: relative;
+}
+
+.security__container .left .logo .image-logo {
+  object-fit: contain;
+}
+
+
+.security__container .left .infos {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.security__container .left .infos h2 {
+  font-size: 2.4rem;
+  color: var(--color-blue);
+}
+
+
+.security__container .left .infos p {
+  color: var(--color-gray);
+}
+
+.security__container .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 48rem) {
+  .security__container {
+    flex-direction: row;
+  }
+
+  .security__container .left {
+      width: 48%;
+  }
+
+  .security__container .right {
+    width: 48%;
+  }
+
 }

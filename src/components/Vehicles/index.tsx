@@ -1,33 +1,55 @@
 
-import { useCars } from '@/data/hooks/useCars';
-import { Car } from '../../models/Car';
+import { IconBrandWhatsapp } from '@tabler/icons-react';
+import './vehicles.css';
+import { useEffect, useState } from 'react';
+import { baseUrl } from '@/utils/url';
+import { Car } from '@/models/Car';
 import { VehicleCard } from '../VehicleCard';
 
-import './vehicles.css';
-
 function Vehicles() {
-  const { cars } = useCars();
+
+  const [cars, setCars] = useState<any[]>([]);
+  const [model, setModel] = useState<string>('');
+  const [year, setYear] = useState<string>('');
+
+  async function loadCars() {
+    console.log('load...');
+    const response = await fetch(`${baseUrl}/cars/7cfb24a7-9af1-4b08-a60a-09438e573ab7?model=${model}&year=${year}`);
+    const data = await response.json();
+
+    if (data) {
+      console.log(data);
+      setCars(data);
+    }
+  }
+
+  useEffect(() => {
+    loadCars();
+  }, []);
+
   return (
-    <section id='cars' className="vehicles-container container">
-      <h2>Veiculos em Destaque</h2>
-      <div className="vehicles">
-        {
-          cars.length === 0 ?
-            <p>Nenhum carro cadastrado.</p>
-            :
-            cars && cars.map((car: Car, index: number) => (
-              <VehicleCard
-                key={index}
-                image={car.image}
-                title={car.title}
-                characteristics={car.characteristics}
-                price={car.price}
-                year={car.year}
-                kilometer={car.kilometer}
-                fuel={car.fuel}
-                condition={car.condition}
-              />
-            ))}
+    <section className="vehicles-container container">
+      <div className="vehicles-list">
+        <h2>Pesquisar veiculo</h2>
+        <form>
+          <input type='text' placeholder='Modelo'
+            onChange={(e) => setModel(e.target.value)}
+          />
+          <input type='text' placeholder='Ano'
+            onChange={(e) => setYear(e.target.value)}
+          />
+          <button type='button' onClick={loadCars} className='button-filled'>Filtrar</button>
+        </form>
+        <div className='vehicles'>
+          {cars.length === 0 ? (
+            <p>Nenhum carro encontrado!</p>
+          ) : cars.map((car: Car, i: number) => (
+            <VehicleCard
+              key={i}
+              {...car}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

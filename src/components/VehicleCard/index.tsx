@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 interface VehicleCardProps {
   image: string;
-  title: string;
+  model: string;
   characteristics: string;
   price: number;
   year: string;
@@ -16,22 +16,25 @@ interface VehicleCardProps {
   condition: string;
 }
 
-function VehicleCard({ image, title, characteristics, price, year, kilometer, fuel, condition }: VehicleCardProps) {
+function VehicleCard({ image, model, characteristics, price, year, kilometer, fuel, condition }: VehicleCardProps) {
 
   return (
     <section className="vehiclecard-container">
       <div className="vehiclecard">
-        <p className='condition'>{condition}</p>
-        <Image className='tec_image' src={image} width={300} height={300} alt='Técnico em Enfermagem' />
+        <div>
+          <p className='condition'>{condition}</p>
+          <Image className='tec_image' src={image} width={300} height={300} alt='Técnico em Enfermagem' />
+        </div>
         <div className="box_card">
           <div className="box_time">
-            <h2>{title}</h2>
-            <p>{characteristics}</p>
+            <div className='title'>
+              <h2>{model}</h2>
+              <p>{characteristics}</p>
+            </div>
             <div className="installment">
               <h4>{Format.formatMoney(price)}</h4>
-              {/* <p>ou <strong>{intallments}x</strong> de {Format.formatMoney(price / intallments)}</p> */}
+              <Link className='button-filled' href='/car-details'><span>Mais detalhes</span></Link>
             </div>
-            <Link className='button-filled' href='/car-details'><span>Mais detalhes</span></Link>
           </div>
           <div className="optionals">
             <span><IconCalendar /> {year}</span>

@@ -1,8 +1,13 @@
 
-.footer__container {
-    display: flex;
-    justify-content: center;
+.footer-container {
+    background-color: var(--color-white);
     padding: 2rem;
+}
+
+.footer-container .footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .footer__container p {
@@ -11,4 +16,31 @@
 
 .footer__container p strong {
     color: var(--color-blue);
+}
+
+.footer .logo .logotipo {
+  object-fit: contain;
+  width: 10rem;
+}
+
+.footer .socials {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer .socials span {
+  color: var(--color-gray);
+}
+
+.footer p {
+  color: var(--color-gray);
+}
+
+@media screen and (min-width: 48rem) {
+  .footer-container .footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 }

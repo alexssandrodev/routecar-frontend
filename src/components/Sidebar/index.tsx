@@ -16,15 +16,14 @@ function Sidebar() {
     <nav className={`container__sidebar ${open ? 'active' : ''}`}>
       <span onClick={() => setOpen((state) => !state)} className='icon_close'><IconChevronCompactRight stroke={3} /></span>
       <div className="box_sidebar">
-        <section className="sidebar">
-          <div className="logo closed">
-            <Image
-              className='logo__contrl'
-              src='/logo-white.png'
-              width={562}
-              height={146}
-              alt='Logotipo contrl on' />
+        <div className='profile'>
+          <span><IconUser stroke={2} /></span>
+          <div>
+            <h2 className='closed'>Minas car</h2>
+            <p className='closed'>minascar@gmail.com</p>
           </div>
+        </div>
+        <section className="sidebar">
         </section>
         <ul className='menu'>
           <Link href={'/dashboard'}> <li><IconHome /> <span className='closed'>Página inicial</span></li></Link>

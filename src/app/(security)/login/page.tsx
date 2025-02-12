@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { Message } from "@/components/Message";
 import { IconKey, IconMailPin, IconShield } from "@tabler/icons-react";
 import Image from "next/image";
+import Link from "next/link";
 
 function Login() {
 
@@ -65,41 +66,33 @@ function Login() {
 
   }
 
-  return (
-    <section className="login__container">
-      <Message message={message} optionalMessage={secondMessage} status={responseStatus} activeMessage={activeMessage} />
-      <div className="box_login">
-        <div className="login">
-          <div className="security">
-            <span><IconShield size={50} /></span>
+  return (<section className="login__container">
+    <Message message={message} optionalMessage={secondMessage} status={responseStatus} activeMessage={activeMessage} />
+    <div className="box_login">
+      <h2>Entre na sua conta</h2>
+      <div className="login">
+        <form action="" method="post" onSubmit={login}>
+          <label htmlFor="email">E-mail</label>
+          <div className="input_login">
+            <input onChange={(e) => setEmail(e.target.value)} type="email" id="email" placeholder="E-mail" />
+            <span><IconMailPin /></span>
           </div>
-          <h2>Logar no sistema</h2>
-
-          <form action="" method="post" onSubmit={login}>
-            <label htmlFor="email">E-mail</label>
-            <div className="input_login">
-              <input onChange={(e) => setEmail(e.target.value)} type="email" id="email" placeholder="E-mail" />
-              <span><IconMailPin /></span>
-            </div>
-            <label htmlFor="password">Senha</label>
-            <div className="input_login">
-              <input onChange={(e) => setPassword(e.target.value)} type="password" id="password" placeholder="Senha" />
-              <span><IconKey /></span>
-            </div>
-            <input className="btn_save" type="submit" value="Logar" />
-          </form>
-          <div className="lines">
-            <div className="line_one"></div>
-            <span>OR</span>
-            <div className="line_two"></div>
+          <label htmlFor="password">Senha</label>
+          <div className="input_login">
+            <input onChange={(e) => setPassword(e.target.value)} type="password" id="password" placeholder="Senha" />
+            <span><IconKey /></span>
           </div>
-          <p>Não tem cadastro no sistema? <a className="link" href={'/signup'}>Fazer cadastro</a></p>
+          <input className="button-fill btn-save" type="submit" value="Logar" />
+        </form>
+        <div className="lines">
+          <div className="line_one"></div>
+          <span>OR</span>
+          <div className="line_two"></div>
         </div>
-        <div className="ilustration">
-          <Image className="image-right" src='/security/ilustration2.png' fill alt="Imagem da direita - ilustração" />
-        </div>
+        <p>Não tem cadastro no sistema? <Link className="link" href={'/signup'}>Fazer cadastro</Link></p>
       </div>
-    </section>
+    </div>
+  </section>
   );
 }
 

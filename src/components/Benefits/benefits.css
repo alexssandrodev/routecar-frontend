@@ -1,20 +1,27 @@
 
-.benefits__container {
-    max-width: 130rem;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 2%;
-    margin-bottom: 8rem;
+.benefits-container {
+  background: url('/bg-benefits.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
 }
 
-.benefits__container .benefits {
+.benefits-container h2 {
+  font-size: 2.4rem;
+  color: var(--color-white);
+  margin-bottom: 2rem;
+}
+
+.benefits-cointainer .benefits {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
-    flex-wrap: wrap;
 }
 
-.benefits .benefit__card {
+.benefits .benefit-card {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -27,25 +34,25 @@
 }
 
 
-.benefits .benefit__card span {
+.benefits .benefit-card span {
     position: absolute;
     top: -1.5rem;
     right: 0;
     color: var(--color-red);
 }
 
-.benefits .benefit__card p {
+.benefits .benefit-card p {
     color: #717171;
 }
 
 @media screen and (min-width: 48rem) {
-    .benefits__container .benefits {
+    .benefits-container .benefits {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media screen and (min-width: 64rem) {
-    .benefits__container .benefits {
+    .benefits-container .benefits {
         grid-template-columns: repeat(3, 1fr);
     }
 }

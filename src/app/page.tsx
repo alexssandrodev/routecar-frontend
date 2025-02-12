@@ -6,6 +6,7 @@ import { Vehicles } from "@/components/Vehicles";
 import { Depoiments } from "@/components/Depoiments";
 import { MainPage } from "@/components/template/MainPage";
 import { useRouter } from "next/navigation";
+import { Search } from "@/components/Search";
 
 function Home() {
   const router = useRouter();
@@ -16,9 +17,7 @@ function Home() {
     <div className="container__homer">
       <MainPage>
         <Vehicles />
-        <Depoiments />
         <Benefits />
-        <Contact />
       </MainPage>
     </div>
   );

@@ -1,16 +1,20 @@
 
-.vehiclecard-container .vehiclecard {
+.searchcard-container {
+  width: max-content;
+}
+.searchcard-container .searchcard {
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     border-radius: 1rem;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
+    gap: 2rem;
     position: relative;
 }
 
-.vehiclecard .condition {
+.searchcard .condition {
   position: absolute;
   background-color: var(--color-red);
   padding: 0 .5rem;
@@ -21,47 +25,60 @@
   border-radius: .5rem;
 }
 
-.vehiclecard-container .vehiclecard .box_card {
+.searchcard-container .searchcard .box_card {
+    flex: 1;
+    display: flex;
+    align-items: center;
     padding: 2rem;
 }
 
-.vehiclecard .box_card .box_time {
+.searchcard .box_card .optionals {
+  display: flex;
+  flex-direction: column;
+}
+
+.box_card .optionals .opt {
+  display: flex;
+  align-items: center;
+}
+
+.searchcard .box_card .box_time {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     margin-bottom: 2rem;
 }
 
-.vehiclecard .box_card .box_time p {
+.searchcard .box_card .box_time p {
   color: var(--color-gray);
 }
 
-.vehiclecard .box_card .box_time h2 {
+.searchcard .box_card .box_time h2 {
     color: var(--gpt-black);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 }
 
-.vehiclecard .box_card .box_time .installment {
+.searchcard .box_card .box_time .installment {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.vehiclecard .box_card .box_time .installment h4 {
-    font-size: 1.4rem;
+.searchcard .box_card .box_time .installment h4 {
+    font-size: 2rem;
     font-weight: 700;
     color: var(--color-red);
 }
 
-.vehiclecard .box_card .box_time .installment p {
+.searchcard .box_card .box_time .installment p {
     color: var(--color-gray);
 }
 
-.vehiclecard .box_card .box_time .installment strong {
+.searchcard .box_card .box_time .installment strong {
     color: var(--color-red);
 }
 
-.vehiclecard .box_card .box_time .car-detail {
+.searchcard .box_card .box_time .car-detail {
     width: 100%;
     background-color: var(--gpt-lightgray);
     padding: .5rem;
@@ -69,20 +86,20 @@
     border-radius: 1rem;
 }
 
-.vehiclecard-container .vehiclecard .tec_image {
+.searchcard-container .searchcard .tec_image {
     width: 100%;
-    height: 20rem;
+    height: 10rem;
     object-fit: cover;
-    border-radius: 1rem 1rem 0 0;
+    border-radius: 1rem;
 }
 
-.vehiclecard-container .vehiclecard .box_card .optionals {
+.searchcard-container .searchcard .box_card .optionals {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.vehiclecard-container .vehiclecard .box_card .optionals span {
+.searchcard-container .searchcard .box_card .optionals span {
     display: flex;
     align-items: center;
     gap: 1rem;

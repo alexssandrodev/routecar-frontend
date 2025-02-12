@@ -2,24 +2,27 @@
 
 import { IconCar, IconUpload } from '@tabler/icons-react';
 import './add-car.css';
-import { useEffect, useRef, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import { baseUrl } from '@/utils/url';
 import { Title } from '@/components/Title';
+import { useCars } from '@/data/hooks/useCars';
+import { Message } from '@/components/Message';
 
 function AddCar() {
 
-  const [month, setMonth] = useState('janeiro');
-  const [category, setCategory] = useState('');
-  const [type, setType] = useState('Receita');
-  const [value, setValue] = useState('');
-  const [created, setCreated] = useState('');
-  const [userId, setUserId] = useState('');
-  const [image, setImage] = useState('');
+  const [file, setFile] = useState<File>();
+  const [model, setModel] = useState<string>('');
+  const [characteristics, setCharacteristics] = useState<string>('');
+  const [price, setPrice] = useState<string>('');
+  const [year, setYear] = useState<string>('');
+  const [kilometer, setKilometer] = useState<string>('');
+  const [fuel, setFuel] = useState('');
+  const [condition, setCondition] = useState('');
 
 
-  const [imageUrl, setImageUrl] = useState();
-  const [preview, setPreview] = useState([]);
+  const [imageUrl, setImageUrl] = useState<File>();
   const inputRef = useRef();
+  const { registerCar, message, activeMessage, responseStatus } = useCars();
 
   function onChooseFile() {
     if (inputRef) {
@@ -27,33 +30,39 @@ function AddCar() {
     }
   }
 
-  async function loadImages() {
-    try {
-      const response = await fetch(`${baseUrl}/images`);
-      const data = await response.json();
-      setPreview(data);
-    } catch (error) {
-      console.log(error);
+  async function saveCar(e: FormEvent) {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('file', file);
+
+    const car = {
+      model,
+      characteristics,
+      price,
+      year,
+      kilometer,
+      fuel,
+      condition
     }
+    await registerCar(formData, car);
   }
 
-  useEffect(() => {
-    loadImages();
-  }, []);
 
   return (
 
-    <section className={`form-car-container`}>
+    <section className='form-car-container'>
+      <Message message={message} status={responseStatus} activeMessage={activeMessage} />
       <Title primary='Cadastrar veiculo' secondary='o veiculo aparecerá no site' icon={IconCar} />
       <div className="form-car">
         <div className="content">
-          <form className='form_create' action="" method="post">
+          <form onSubmit={saveCar} encType='multipart/form-data' className='form_create' action="" method="post">
             <div className='box'>
               <div className='input-form'>
 
                 <label htmlFor="category">Modelo</label>
                 <input
-                  onChange={(e) => setImageUrl(e.target.files[0])}
+                  onChange={(e) => setModel(e.target.value)}
+                  value={model}
                   name='model'
                   type="text"
                   placeholder='Modelo'
@@ -64,7 +73,7 @@ function AddCar() {
               <div className='input-form'>
                 <label htmlFor="category">Caracteristicas</label>
                 <input
-                  onChange={(e) => setImageUrl()}
+                  onChange={(e) => setCharacteristics(e.target.value)}
                   name='model'
                   type="text"
                   placeholder='Caracteristicas'
@@ -73,10 +82,11 @@ function AddCar() {
               <div className='input-form'>
                 <label htmlFor="category">Preço</label>
                 <input
-                  onChange={(e) => setImageUrl()}
+                  onChange={(e) => setPrice(e.target.value)}
                   name='model'
                   type="number"
                   placeholder='Preço'
+                  value={price}
                 />
               </div>
             </div>
@@ -85,7 +95,8 @@ function AddCar() {
               <div className='input-form'>
                 <label htmlFor="category">Ano do veiculo</label>
                 <input
-                  onChange={(e) => setImageUrl()}
+                  onChange={(e) => setYear(e.target.value)}
+                  value={year}
                   name='model'
                   type="text"
                   placeholder='Ano do veiculo'
@@ -94,7 +105,8 @@ function AddCar() {
               <div className='input-form'>
                 <label htmlFor="category">Kilometragem</label>
                 <input
-                  onChange={(e) => setImageUrl()}
+                  onChange={(e) => setKilometer(e.target.value)}
+                  value={kilometer}
                   name='model'
                   type="text"
                   placeholder='Kilometragem'
@@ -106,7 +118,8 @@ function AddCar() {
               <div className='input-form'>
                 <label htmlFor="category">Tipo de combustivel</label>
                 <input
-                  onChange={(e) => setImageUrl()}
+                  onChange={(e) => setFuel(e.target.value)}
+                  value={fuel}
                   name='model'
                   type="text"
                   placeholder='Tipo de combustivel'
@@ -115,7 +128,8 @@ function AddCar() {
               <div className='input-form'>
                 <label htmlFor="category">condição</label>
                 <input
-                  onChange={(e) => setImageUrl()}
+                  onChange={(e) => setCondition(e.target.value)}
+                  value={condition}
                   name='model'
                   type="text"
                   placeholder='Condição (0 KM - SEMI NOVO)'
@@ -126,8 +140,8 @@ function AddCar() {
               <div className='input-form'>
                 <label htmlFor="category">Imagem do carro</label>
                 <input
-                  onChange={(e) => setImageUrl(e.target.files[0])}
-                  name='image'
+                  onChange={(e) => setFile(e.target.files?.[0])}
+                  name='file'
                   type="file"
                   ref={inputRef}
                   style={{ display: 'none' }}
@@ -143,9 +157,9 @@ function AddCar() {
 
           <div className='image-preview'>
             <h4>Image preview</h4>
-            {imageUrl ?
+            {file ?
               <img
-                src={URL.createObjectURL(imageUrl)}
+                src={URL.createObjectURL(file)}
                 className='image-prev'
                 width={200} height={200}
                 alt='magem'

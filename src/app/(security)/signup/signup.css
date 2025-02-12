@@ -1,27 +1,27 @@
 
-.signup__container {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.box_login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
-.signup__container .box_signup {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.box_login h2 {
+  font-size: 2.4rem;
+  color: var(--color-black);
 }
 
-.signup__container .signup {
-    flex-grow: 50rem;
-    color: var(--gpt-text);
+.box_login .login {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: var(--color-black);
     padding: 1.5rem;
     border-radius: 1.5rem;
     transition: all .5s ease-in-out;
 }
 
-.signup .lines {
+.login .lines {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,78 +30,83 @@
     color: #969696;
 }
 
-.signup .lines .line_one::after {
+.login .lines .line_one::after {
     content: '';
     width: 15rem;
     height: .1rem;
-    background-color: var(--gpt-text);
+    background-color: var(--color-gray);
     display: block;
 }
 
-.signup .lines .line_two::before {
+.login .lines .line_two::before {
     content: '';
     width: 15rem;
     height: .1rem;
-    background-color: var(--gpt-text);
+    background-color: var(--color-gray);
     display: block;
 }
 
-.signup h2 {
+.login__container .login .security {
     text-align: center;
     margin-bottom: 2rem;
 }
 
-.signup form {
+.login h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login form {
     display: flex;
     flex-direction: column;
     gap: .5rem;
 }
 
-.signup form .input_login {
+.login form .input_login {
     display: flex;
     color: var(--gpt-text);
-    border-bottom: .1rem solid var(--gpt-text);
+    border-bottom: .1rem solid var(--color-gray);
     margin-bottom: 2rem;
 }
 
-.signup form input {
+.login form .input_login input {
     flex: 1;
     padding: 1rem;
-    background: transparent;
+    background-color: tranparent;
 }
 
-.signup form .btn_save {
-    background-color: var(--color-blue);
+.login form input[placeholder] {
     color: var(--gpt-text);
-    padding: 1rem;
-    margin-top: 2rem;
-    cursor: pointer;
 }
 
-.signup p {
+.login form .btn-save {
+    margin-top: 2rem;
+}
+
+.login p {
     text-align: center;
     margin-top: 2rem;
 }
 
-.signup .link {
+.login .link {
     color: var(--color-blue);
     text-decoration: underline;
 }
 
-.signup__container .ilustration {
+.login__container .ilustration {
     position: relative;
-    width: 48%;
+    width: 40rem;
     height: 100vh;
     display: none;
 }
 
-.signup__container .ilustration .image-right {
+.login__container .ilustration .image-right {
     width: 100%;
     object-fit: contain;
 }
 
 @media screen and (min-width: 48rem) {
-    .signup__container .ilustration {
+    .login__container .ilustration {
         display: flex;
         align-items: center;
         background-color: #ffffff;
@@ -109,10 +114,7 @@
 }
 
 @media screen and (min-width: 64rem) {
-    .signup__container .box_signup .signup {
-        width: 40%;
-    }
-    .signup__container .ilustration {
+    .login__container .ilustration {
         flex: 1;
     }
 }
